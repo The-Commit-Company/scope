@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FrappeProvider } from 'frappe-react-sdk'
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
+import Login from './pages/auth/Login';
 
 function App() {
 	const [count, setCount] = useState(0)
@@ -29,20 +30,7 @@ function App() {
 					socketPort={import.meta.env.VITE_SOCKET_PORT}
 					siteName={getSiteName()}
 				>
-					<div>
-						<h1>Vite + React + Frappe</h1>
-						<div className="card">
-							<button onClick={() => setCount((count) => count + 1)}>
-								count is {count}
-							</button>
-							<p>
-								Edit <code>src/App.jsx</code> and save to test HMR
-							</p>
-						</div>
-						<p className="read-the-docs">
-							Click on the Vite and React logos to learn more
-						</p>
-					</div>
+					<Login />
 				</FrappeProvider>
 			</Theme>
 		</div>
