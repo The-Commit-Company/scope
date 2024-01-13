@@ -1,0 +1,15 @@
+{
+  "name": "scope_app",
+  "version": "1.0.0",
+  "description": "Project management made easy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cd scope && yarn dev",
+    "build": "cd scope && yarn build",
+    "postinstall": "cd scope && yarn install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
