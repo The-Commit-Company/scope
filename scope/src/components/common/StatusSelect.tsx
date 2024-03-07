@@ -1,11 +1,16 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { SelectProps } from '@radix-ui/react-select'
 import StatusIcon from './StatusIcon'
+import { cn } from '@/lib/utils'
 
-const StatusSelect = (props: SelectProps) => {
+
+interface StatusSelectProps extends SelectProps {
+    triggerClass?: string
+}
+const StatusSelect = ({ triggerClass, ...props }: StatusSelectProps) => {
     return (
         <Select {...props}>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className={cn("w-[180px]", triggerClass)}>
                 <SelectValue placeholder="Status" />
             </SelectTrigger>
             <SelectContent>

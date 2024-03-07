@@ -1,11 +1,16 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { SelectProps } from '@radix-ui/react-select'
 import PriorityIcon from './PriorityIcon'
+import { cn } from '@/lib/utils'
 
-const PrioritySelect = (props: SelectProps) => {
+
+interface PrioritySelectProps extends SelectProps {
+    triggerClass?: string
+}
+const PrioritySelect = ({ triggerClass, ...props }: PrioritySelectProps) => {
     return (
         <Select {...props}>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className={cn("w-[180px]", triggerClass)}>
                 <SelectValue placeholder="Priority" />
             </SelectTrigger>
             <SelectContent>

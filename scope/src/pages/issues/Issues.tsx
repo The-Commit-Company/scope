@@ -1,6 +1,7 @@
 import { ErrorBanner } from "@/components/common/ErrorBanner"
 import PrioritySelect from "@/components/common/PrioritySelect"
 import StatusSelect from "@/components/common/StatusSelect"
+import CreateIssueDialog from "@/components/features/issue-list/CreateIssueDialog"
 import IssueListLoader from "@/components/features/issue-list/IssueListLoader"
 import IssueRow from "@/components/features/issue-list/IssueRow"
 import { Button } from "@/components/ui/button"
@@ -91,10 +92,7 @@ const Issues = () => {
         <div className="p-4 flex flex-col gap-2">
             <div className="flex justify-between items-center">
                 <H1 className="text-2xl lg:text-2xl">Issues</H1>
-                <Button size='sm'>
-                    <Plus size={14} className="mr-2" />
-                    Create
-                </Button>
+                <CreateIssueDialog />
             </div>
             <Separator />
             {/* {isLoading && <IssueListLoader />} */}
