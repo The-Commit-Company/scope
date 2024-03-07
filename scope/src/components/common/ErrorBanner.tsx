@@ -1,8 +1,8 @@
 import { FrappeError } from 'frappe-react-sdk'
 import { PropsWithChildren, useMemo } from 'react'
 import React from 'react'
-import { Callout } from '@radix-ui/themes'
 import { FiAlertTriangle } from 'react-icons/fi'
+import { Alert, AlertDescription, AlertTitle } from '../ui/alert'
 
 interface ErrorBannerProps {
     error?: FrappeError | null,
@@ -77,12 +77,13 @@ export const ErrorBanner = ({ error, before, after }: ErrorBannerProps) => {
 
 
 export const ErrorCallout = ({ children }: PropsWithChildren) => {
-    return (<Callout.Root color="red" role="alert">
-        <Callout.Icon>
-            <FiAlertTriangle size='18' />
-        </Callout.Icon>
-        <Callout.Text>
+    return (<Alert variant='destructive'>
+        <FiAlertTriangle size='18' />
+        <AlertTitle>
+            Error
+        </AlertTitle>
+        <AlertDescription>
             {children}
-        </Callout.Text>
-    </Callout.Root>)
+        </AlertDescription>
+    </Alert>)
 }

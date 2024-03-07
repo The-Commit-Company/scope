@@ -1,7 +1,7 @@
 import { FrappeProvider } from 'frappe-react-sdk'
-import '@radix-ui/themes/styles.css';
-import { Theme } from '@radix-ui/themes';
-import Login from './pages/auth/Login';
+import Login from '@/pages/auth/Login';
+import { Toaster } from '@/components/ui/sonner';
+import './index.css'
 
 function App() {
 
@@ -19,18 +19,14 @@ function App() {
 
 	return (
 		<div className="App">
-			<Theme
-				appearance='dark'
-				accentColor='iris'
-				panelBackground='translucent'
+			<FrappeProvider
+				socketPort={import.meta.env.VITE_SOCKET_PORT}
+				siteName={getSiteName()}
 			>
-				<FrappeProvider
-					socketPort={import.meta.env.VITE_SOCKET_PORT}
-					siteName={getSiteName()}
-				>
-					<Login />
-				</FrappeProvider>
-			</Theme>
+				<Login />
+
+				<Toaster />
+			</FrappeProvider>
 		</div>
 	)
 }

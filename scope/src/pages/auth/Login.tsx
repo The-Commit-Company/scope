@@ -1,7 +1,10 @@
-import { Button, Card, Flex, Heading, Text, TextField } from "@radix-ui/themes"
 import { useFrappeAuth } from "frappe-react-sdk"
 import { useState } from "react"
 import { ErrorBanner } from "../../components/common/ErrorBanner"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
 
 const Login = () => {
 
@@ -28,48 +31,41 @@ const Login = () => {
 
     return (
         <div>
-            <Flex align='center' justify='center'
-                className="w-screen h-screen"
+            <div
+                className="flex justify-center items-center w-screen h-screen"
             >
-                <Card className="w-[40vw] p-2">
-                    <Flex direction='column' gap='4'>
-                        <Heading>Login</Heading>
-
+                <Card className="w-[480px]">
+                    <CardHeader>
+                        <CardTitle>Login</CardTitle>
+                        <CardDescription>Access your account on Scope</CardDescription>
+                    </CardHeader>
+                    <CardContent>
                         {loginError ?
                             <ErrorBanner error={loginError} /> : null}
-                        <Flex direction='column' gap='2'>
-                            <Text as='label'>
-                                Username/Email
-                            </Text>
-                            <TextField.Root>
-                                <TextField.Input placeholder="Username"
+                        <div className="flex flex-col gap-4">
+
+                            <div className="flex flex-col gap-4">
+                                <Label htmlFor="username">Username/Email</Label>
+                                <Input placeholder="Username"
                                     onChange={(e) => setUsername(e.target.value)}
-                                    value={username}
-                                />
-                            </TextField.Root>
-                        </Flex>
+                                    value={username} />
+                            </div>
 
-                        <Flex direction='column' gap='2'>
-                            <Text as='label'>
-                                Password
-                            </Text>
-                            <TextField.Root>
-                                <TextField.Input
-                                    type='password'
-                                    placeholder="*******"
+                            <div className="flex flex-col gap-4">
+                                <Label htmlFor="password">Password</Label>
+                                <Input type="password" placeholder="*******"
                                     onChange={(e) => setPassword(e.target.value)}
-                                    value={password}
-                                />
-                            </TextField.Root>
-                        </Flex>
-
+                                    value={password} />
+                            </div>
+                        </div>
+                    </CardContent>
+                    <CardFooter>
                         <Button onClick={onSubmit} disabled={isLoading}>
                             Login
                         </Button>
-                    </Flex>
-
+                    </CardFooter>
                 </Card>
-            </Flex>
+            </div>
         </div>
     )
 }
