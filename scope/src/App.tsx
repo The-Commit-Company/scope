@@ -1,11 +1,9 @@
-import { useState } from 'react'
 import { FrappeProvider } from 'frappe-react-sdk'
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
 import Login from './pages/auth/Login';
 
 function App() {
-	const [count, setCount] = useState(0)
 
 	// We need to pass sitename only if the Frappe version is v15 or above.
 
