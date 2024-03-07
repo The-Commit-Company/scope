@@ -8,11 +8,14 @@ export default defineConfig({
 	plugins: [react()],
 	server: {
 		port: 8080,
-		proxy: proxyOptions
+		proxy: proxyOptions,
+		hmr: {
+			overlay: false,
+		}
 	},
 	resolve: {
 		alias: {
-			'@': path.resolve(__dirname, './src')
+			'@': path.resolve(__dirname, 'src')
 		}
 	},
 	build: {

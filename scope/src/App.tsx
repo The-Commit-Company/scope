@@ -2,6 +2,7 @@ import { FrappeProvider } from 'frappe-react-sdk'
 import Login from '@/pages/auth/Login';
 import { Toaster } from '@/components/ui/sonner';
 import './index.css'
+import Issues from './pages/issues/Issues';
 
 function App() {
 
@@ -23,8 +24,8 @@ function App() {
 				socketPort={import.meta.env.VITE_SOCKET_PORT}
 				siteName={getSiteName()}
 			>
-				<Login />
-
+				{/* <Login /> */}
+				<Issues />
 				<Toaster />
 			</FrappeProvider>
 		</div>
